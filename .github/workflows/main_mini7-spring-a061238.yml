@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_1c853f86fb7e45568d3e85a06fcfaed7 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_111d811bb1c04b9087d516af2e93b569 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_d81d538762fb46cba9a0b53eca16fc9e }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_799f9405d0a942cf9821c0aaaa5a19f9 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/atomic365/aivle_mini7_6_spring:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d81d538762fb46cba9a0b53eca16fc9e }}/aivle_mini7_6_spring:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'mini7-spring-a061238'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4b0063693ff94c23990ca183443a6e5c }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1c853f86fb7e45568d3e85a06fcfaed7 }}/atomic365/aivle_mini7_6_spring:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f4b5c01892824c8d8b63482af8cb7c38 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d81d538762fb46cba9a0b53eca16fc9e }}/aivle_mini7_6_spring:${{ github.sha }}'
