@@ -88,27 +88,8 @@ input::placeholder {
     color: rgba(0, 0, 0, 0.5);
 }
 
-button[type="button"] {
-    margin-top: 10px;
-    border: 2px solid var(--green);
-    background: var(--green);
-    border-radius: 25px;
-    padding: 10px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.1s ease-out;
-}
-
-button[type="button"]:hover {
-    color: var(--green);
-    background: #fff;
-    border: 2px solid var(--green);
-}
-
 button[type="submit"] {
-    margin-top: 10px;
+    margin-top: 30px;
     border: 2px solid var(--green);
     background: var(--green);
     border-radius: 25px;
