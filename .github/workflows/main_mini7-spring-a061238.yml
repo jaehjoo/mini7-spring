@@ -51,4 +51,4 @@ jobs:
         app-name: 'mini7-spring-a061238'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_f4b5c01892824c8d8b63482af8cb7c38 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d81d538762fb46cba9a0b53eca16fc9e }}/aivle_mini7_6_spring:${{ github.sha }}'
+        images: 'index.docker.io/atomic365/aivle_mini7_6_spring:latest'
