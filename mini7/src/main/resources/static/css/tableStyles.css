@@ -1,58 +1,99 @@
+:root {
+    --red: #EF6161;
+    --green: #7ac142;
+    --gray: rgba(0, 0, 0, 0.5);
+    --light-gray: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    width: 100%;
-    height: 120vh;
-    margin: 0 auto;
-    background: linear-gradient(rgb(52, 175, 209), blue);
+    font-family: "Roboto", sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h2 {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 35px;
-    font-weight: 700;
-}
-
-.frame-background {
-    width: 80%;
-    margin: auto;
-    margin-top: 5vh;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px rgb(161, 158, 158);
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px; 
 }
 
 table {
+    width: 100%; /* 테이블 폭을 90%로 설정 */
+    max-width: 1200px; /* 최대 폭 설정 */
     border-collapse: collapse;
-    min-width: 95%;
-    margin: 0rem auto;
-    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1);
-    background-color: white;
+    margin-top: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+thead {
+    background-color: var(--green); 
+    color: white;
 }
 
 th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    padding: 12px; /* 패딩을 12px로 증가 */
+    text-align: center;
+    border: 1px solid var(--light-gray);
+}
+
+td:first-child, th:first-child {
+    padding-left: -2%;
     text-align: center;
 }
 
-th {
-    background-color: #1b1b1b;
-    color: #ddd;
+tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
 }
 
 tbody tr:hover {
-    background-color: #d3d3d3;
-    opacity: 0.9;
-    cursor: pointer;
+    background-color: var(--light-gray); 
 }
 
+/* 버튼 스타일 */
 button {
-    margin-top: 50px;
-    padding: 5px;
-    min-width: 200px;
-    border: 0;
-    background-color: gray;
-    color: white; 
+    margin-top: 5%; /* 테이블 아래 여백 추가 */
+    padding: 2% 1%; /* 버튼 안쪽 여백 */
+    border: none;
+    border-radius: 5px;
+    background-color: var(--green);
+    color: white;
+    font-size: 0.7 rad;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-  
+
+button:hover {
+    background-color: var(--light-gray);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    td {
+        text-align: right;
+        padding-left: 10%;
+        position: relative;
+    }
+
+    td::before {
+        position: absolute;
+        left: 1%;
+        width: 45%;
+        padding-right: 1%;
+        white-space: nowrap;
+        content: attr(data-label);
+        text-align: left;
+    }
+}
