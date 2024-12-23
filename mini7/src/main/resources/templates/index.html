@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RequestInfo</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+</head>
+<body>
+    <div class="header">
+    </div>
+    <div class="callTitle">
+        <h2>당신의 손 끝이</h2>
+        <h2>한 명의 응급환자를 구할 수 있습니다</h2>
+    </div>
+    <form th:action="@{/api/order}" method="get">
+        <fieldset>
+            <legend><img class="icon" src="/image/emer.png"></legend>
+            <h3>응급 신고 내용</h3>
+            <label for="name" class="label-first">신고 내용
+                <input type="text" name="text" id="name" placeholder="아버지가 아프세요">
+            </label>
+            <label for="hospitalNum">응급 병원 수
+                <input type="text" name="hospitalNum" id="hospitalNum" placeholder="3">
+            </label>
+            <label for="startLat">신고자 위치(위도)
+                <input type="text" name="startLat" id="startLat" placeholder="37.2">
+            </label>
+            <label for="startLng" class="label-last">응급 신고자 위치(경도)
+                <input type="text" name="startLng" id="startLng" placeholder="127.5">
+            </label>
+            <button type="submit">검색</button>
+        </fieldset>
+    </form>
+    <div class="footer"></div>
+</body>
+</html>

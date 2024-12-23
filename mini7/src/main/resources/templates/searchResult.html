@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>추천 병원 목록</title>
+    <link rel="stylesheet" href="/css/tableStyles.css">
+</head>
+<body>
+    <div class="frame-background">
+        <h2>추천 병원 목록</h2>
+        <table border="1">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>병원명</th>
+                <th>병원등급</th>
+                <th>병원주소</th>
+                <th>전화번호</th>
+                <th>이동시간</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="h, iterStat : ${result.hospitalList}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td th:text="${h.name}"></td>
+                <td th:text="${h.grade}"></td>
+                <td th:text="${h.address}"></td>
+                <td th:text="${h.phone}"></td>
+                <td th:text="${h.moveTime} + ' 분'"></td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="location.href='/'">검색 화면으로 돌아가기</button>
+    </div>
+</body>
+</html>
