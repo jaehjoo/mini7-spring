@@ -29,8 +29,11 @@ jobs:
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
+        platforms: linux/amd64
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_d81d538762fb46cba9a0b53eca16fc9e }}/aivle_mini7_6_spring:${{ github.sha }}
+        tags: |
+          index.docker.io/atomic365/aivle_mini7_6_spring:latest
+          index.docker.io/atomic365/aivle_mini7_6_spring:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
