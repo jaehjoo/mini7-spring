@@ -53,15 +53,22 @@ tbody tr:hover {
     background-color: var(--light-gray); 
 }
 
+
+.button-container {
+    width: 100%; /* 버튼 컨테이너 폭을 100%로 설정 */
+    display: flex;
+    justify-content: end; /* 오른쪽 정렬 */
+    align-items: flex-end;
+    margin-top: 5%; /* 테이블 아래 여백 추가 */
+}
 /* 버튼 스타일 */
 button {
-    margin-top: 5%; /* 테이블 아래 여백 추가 */
-    padding: 2% 1%; /* 버튼 안쪽 여백 */
+    padding: 1% 1%; /* 버튼 안쪽 여백 */
     border: none;
     border-radius: 5px;
     background-color: var(--green);
     color: white;
-    font-size: 0.7 rad;
+    font-size: 0.7 rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
