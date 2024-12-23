@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ac231e0a03b24fe7b72ae5d7d42c731f }}/atomic365/aivle_mini7_6_spring:${{ github.sha }}
+        tags: index.docker.io/atomic365/aivle_mini7_6_spring:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
