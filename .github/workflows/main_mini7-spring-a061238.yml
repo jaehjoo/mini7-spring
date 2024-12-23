@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/atomic365/aivle_mini7_6_spring:${{ github.sha }}
+        tags: index.docker.io/atomic365/aivle_mini7_6_spring:latest
         file: ./Dockerfile
 
   deploy:
