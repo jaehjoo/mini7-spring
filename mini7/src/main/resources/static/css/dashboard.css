@@ -1,4 +1,11 @@
 /* 대시보드 전체 컨테이너 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
 .dashboard-container {
    /* display: flex; # 가로배치*/
     justify-content: space-around;
