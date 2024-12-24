@@ -1,0 +1,20 @@
+/* 대시보드 전체 컨테이너 */
+.dashboard-container {
+   /* display: flex; # 가로배치*/
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* 각 박스 스타일 */
+.box {
+    /* width: 30%; 가로 배치 시 너비 동일하게 */
+    background-color: #ffffff; /* 박스 배경색 */
+    border: 1px solid #ddd; /* 박스 테두리 */
+    border-radius: 8px; /* 둥근 모서리 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    padding: 20px; /* 내부 여백 */
+    box-sizing: border-box;
+    margin: 20px;
+}
