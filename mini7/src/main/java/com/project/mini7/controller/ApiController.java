@@ -1,11 +1,12 @@
 package com.project.mini7.controller;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.project.mini7.dto.DashboardDTO;
-import com.project.mini7.dto.EmergencySQLDTO;
-import com.project.mini7.service.GetEmergencyDataService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.project.mini7.dto.DashboardDTO;
 import com.project.mini7.dto.EmergencyDTO;
+import com.project.mini7.dto.EmergencySQLDTO;
 import com.project.mini7.repository.EmergencyRepository;
+import com.project.mini7.service.GetEmergencyDataService;
 import com.project.mini7.transutil.TransDtoToEntity;
 
 import lombok.RequiredArgsConstructor;
@@ -115,7 +119,7 @@ public class ApiController {
                         (e1, e2) -> e1,
                         LinkedHashMap::new
                 ));
-        Map<String, Integer> sortedHospitalMap = regionMap.entrySet()
+        Map<String, Integer> sortedHospitalMap = hospitalMap.entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .limit(5)
