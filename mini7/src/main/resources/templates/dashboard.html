@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/tableStyles.css">
+</head>
+<body>
+<div class="frame-background">
+    <h2>최근 신고 이력</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>응급 등급</th>
+            <th>신고 내용</th>
+            <th>위도</th>
+            <th>경도</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="h, iterStat : ${recentCall.callRecords}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${h.emClass}"></td>
+            <td th:text="${h.text}"></td>
+            <td th:text="${h.startLat}"></td>
+            <td th:text="${h.startLng}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="frame-background">
+    <h2>요청 병원 순위</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>병원명</th>
+            <th>요청수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="h, iterStat : ${hospitalRank.hospitalRanks}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${h.key}"></td>
+            <td th:text="${h.value}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="frame-background">
+    <h2>전국 요청 순위</h2>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>병원명</th>
+            <th>요청수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r, iterStat : ${regionRank.regionRanks}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${r.key}"></td>
+            <td th:text="${r.value}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
