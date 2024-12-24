@@ -2,17 +2,12 @@
     width: 100%;
     position: relative;
     border-bottom: 1px solid #ccc;
-    background-color: #f8f9fa;
 }
 
 .navbar-brand {
     font-size: 2rem;
     font-weight: bold;
     color: #ff4500;
-}
-
-.navbar-brand:hover {
-    color: #ff6347;
 }
 
 .navbar-nav {
@@ -40,5 +35,4 @@
 .navbar-nav .nav-link.active {
     color: #007bff;
     font-weight: bold;
-    border-bottom: 2px solid #007bff;
 }

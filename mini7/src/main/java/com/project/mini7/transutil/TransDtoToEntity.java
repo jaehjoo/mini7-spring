@@ -1,5 +1,13 @@
 package com.project.mini7.transutil;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.mini7.dto.EmergencyDTO;
@@ -7,11 +15,8 @@ import com.project.mini7.dto.MessageDTO;
 import com.project.mini7.entity.EmergencyInfo;
 import com.project.mini7.entity.HospitalInfo;
 import com.project.mini7.repository.EmergencyRepository;
-import lombok.RequiredArgsConstructor;
-import org.aspectj.bridge.Message;
-import org.springframework.http.ResponseEntity;
 
-import java.util.*;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class TransDtoToEntity {
@@ -57,7 +62,7 @@ public class TransDtoToEntity {
             map.put("status", "fail");
             try {
                 MessageDTO.message messageDto = mapper.readValue(response.getBody(), MessageDTO.message.class);
-                map.put("message", messageDto.getMessage());
+                map.put("result", messageDto.getMessage());
             } catch (JsonProcessingException er) {
                 // 입출력에서 오류가 발생한 경우, 별도 error 페이지로 안내하기 위한 flag
                 map.put("result", "please check your input");

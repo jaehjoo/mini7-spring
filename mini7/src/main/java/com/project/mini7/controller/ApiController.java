@@ -67,7 +67,8 @@ public class ApiController {
         }
 
         // 실패하면 error 페이지로 이동
-        model.addAttribute("error", map.get("result"));
+        model.addAttribute("result", map.get("result"));
+        System.out.println(map.get("result"));
         return "error";
     }
 
