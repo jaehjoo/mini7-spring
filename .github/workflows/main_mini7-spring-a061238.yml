@@ -52,3 +52,4 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_f4b5c01892824c8d8b63482af8cb7c38 }}
         images: 'index.docker.io/atomic365/aivle_mini7_6_spring:latest'
+        action: 'restart'
