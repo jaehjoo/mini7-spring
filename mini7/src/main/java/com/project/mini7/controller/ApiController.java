@@ -1,7 +1,11 @@
 package com.project.mini7.controller;
 
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import com.project.mini7.dto.DashboardDTO;
+import com.project.mini7.dto.EmergencySQLDTO;
+import com.project.mini7.service.GetEmergencyDataService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -61,5 +65,78 @@ public class ApiController {
         // 실패하면 error 페이지로 이동
         model.addAttribute("error", map.get("result"));
         return "error";
+    }
+
+    private final GetEmergencyDataService getEmergencyDataService;
+
+    @GetMapping("/dashboard")
+    public String getDashboardInfo(Model model) {
+        // db의 data를 전부 불러온다
+        List<EmergencySQLDTO.EmergencyDto> data = getEmergencyDataService.getAllEmergencyInfo();
+
+        // dashboard에 전시할 내용물을 저장할 dto를 생성
+        DashboardDTO.RecentCallRecordsDto callRecordsDto = new DashboardDTO.RecentCallRecordsDto();
+        DashboardDTO.HospitalCallRankDto hospitalCallRankDto = new DashboardDTO.HospitalCallRankDto();
+        DashboardDTO.RegionCallRankDto regionCallRankDto = new DashboardDTO.RegionCallRankDto();
+
+        List<DashboardDTO.CallRecordDto> recordDtoList = new ArrayList<>();
+        Map<String, Integer> regionMap = new HashMap<>();
+        Map<String, Integer> hospitalMap = new HashMap<>();
+
+        // EmergencyData를 역순으로 순회하면서 데이터를 저장한다
+        int size = data.size();
+        for (int i = size - 1; i >= 0; i--) {
+            EmergencySQLDTO.EmergencyDto dto = data.get(i);
+
+            if (size - i < 5) {
+                DashboardDTO.CallRecordDto recordDto = new DashboardDTO.CallRecordDto();
+                recordDto.setEmClass(dto.getEmClass());
+                recordDto.setText(dto.getText());
+                recordDto.setStartLat(dto.getLatitude());
+                recordDto.setStartLng(dto.getLongitude());
+                recordDtoList.add(recordDto);
+            }
+            for (EmergencySQLDTO.HospitalDto h : dto.getHospitalList()) {
+                String addr = h.getAddress().split(" ")[0];
+                String name = h.getName();
+                regionMap.merge(addr, 1, Integer::sum);
+                hospitalMap.merge(name, 1, Integer::sum);
+            }
+        }
+
+        // region, hospital 순위 확인을 위해 정렬을 한다
+        Map<String, Integer> sortedRegionMap = regionMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .limit(5)
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                ));
+        Map<String, Integer> sortedHospitalMap = regionMap.entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .limit(5)
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                ));
+
+        // 최종 결과물을 포장하기 위해 dto에 저장
+        callRecordsDto.setCallRecords(recordDtoList);
+        hospitalCallRankDto.setHospitalRanks(sortedHospitalMap);
+        regionCallRankDto.setRegionRanks(sortedRegionMap);
+
+        // dto를 model 속성으로 주입하여 dashboard 페이지에서 꺼낼 수 있도록 조치
+        model.addAttribute("recentCall", callRecordsDto);
+        model.addAttribute("hospitalRank", hospitalCallRankDto);
+        model.addAttribute("regionRank", regionCallRankDto);
+
+        // dashboard view 반환
+        return "dashboard";
     }
 }
