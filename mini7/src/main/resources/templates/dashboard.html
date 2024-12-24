@@ -2,11 +2,14 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/tableStyles.css">
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/nav.css">
 </head>
 <body>
-<h2>Dashborad</h2>
+<div th:replace="header.html"></div>
+<div class="header">A/S</div>
 <div class="dashboard-container">
     <div class="box">
         <h2>최근 신고 이력</h2>
