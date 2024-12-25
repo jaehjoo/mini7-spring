@@ -65,6 +65,9 @@ public class MapController {
 
     @GetMapping("/dynamic")
     public String start(@ModelAttribute MapDTO.RouteDto route, Model model) {
+        if (clientId.equals("null")) {
+            clientId = System.getenv("MAP_ID");
+        }
         model.addAttribute("clientId", clientId);
         model.addAttribute("route", route);
         return "mapDynamic";
