@@ -35,21 +35,3 @@ jobs:
           index.docker.io/atomic365/aivle_mini7_6_spring:latest
           index.docker.io/atomic365/aivle_mini7_6_spring:${{ github.sha }}
         file: ./Dockerfile
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'mini7-spring-a061238'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f4b5c01892824c8d8b63482af8cb7c38 }}
-        images: 'index.docker.io/atomic365/aivle_mini7_6_spring:latest'
-        action: 'restart'
