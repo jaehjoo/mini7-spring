@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="h, iterStat : ${result.hospitalList}">
+            <tr th:each="h, iterStat : ${result.hospitalList}" th:attr="data-href=@{/api/map/dynamic(startLat=${resultInfo.startLat}, startLng=${resultInfo.startLng}, endLat=${h.latitude}, endLng=${h.longitude})}">
                 <td th:text="${iterStat.index + 1}"></td>
                 <td th:text="${h.name}"></td>
                 <td th:text="${h.grade}"></td>
@@ -36,6 +36,7 @@
             </tbody>
         </table>
     </div>
+    <script src="/js/eventToMap.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
