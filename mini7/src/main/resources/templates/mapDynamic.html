@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Map Route</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/mapStyles.css" type="text/css">
+    <style>
+        #map {width: 600px; height: 400px;}
+    </style>
+</head>
+<body>
+    <div th:replace="header.html"></div>
+    <div class="container">
+        <div class="header">Search Route Result</div>
+        <div id="map"></div>
+    </div>
+    <script th:src="@{|https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${clientId}|}"></script>
+    <script type="text/javascript" src="/js/drawMaps.js"></script>
+    <!-- Bootstrap JS 및 jQuery 포함 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
