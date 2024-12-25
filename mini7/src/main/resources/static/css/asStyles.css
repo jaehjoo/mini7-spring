@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--dark-gray2);
 }
 
 .container {
@@ -21,8 +21,8 @@ body {
 }
 
 .service-sections {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--light-gray1);
+    color: var(--dark-gray2);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -50,8 +50,8 @@ body {
 
 /* 버튼 스타일 */
 .service-card button {
-    background-color: #6f87ff;
-    color: #fff;
+    background-color: var(--chery-blue);
+    color: var(--white);
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -63,7 +63,7 @@ body {
 
 /* 버튼 내부 링크 스타일 */
 .service-card button a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
     display: inline-block;
     width: 100%;
@@ -72,11 +72,11 @@ body {
 
 /* 버튼 호버 효과 */
 .service-card button:hover {
-    background-color: #aab9ff;
+    background-color: var(--blue3);
 }
 
 .service-card button a:hover {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
 }
 

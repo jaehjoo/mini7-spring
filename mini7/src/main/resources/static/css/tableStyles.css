@@ -1,9 +1,3 @@
-:root {
-    --red: #EF6161;
-    --green: #7ac142;
-    --gray: rgba(0, 0, 0, 0.5);
-    --light-gray: rgba(0, 0, 0, 0.1);
-}
 
 body {
     font-family: "Roboto", sans-serif;
@@ -30,14 +24,14 @@ table {
 }
 
 thead {
-    background-color: var(--green); 
+    background-color: var(--chery-blue);
     color: white;
 }
 
 th, td {
     padding: 12px; /* 패딩을 12px로 증가 */
     text-align: center;
-    border: 1px solid var(--light-gray);
+    border: 1px solid var(--light-gray1);
 }
 
 td:first-child, th:first-child {
@@ -50,7 +44,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:hover {
-    background-color: var(--light-gray); 
+    background-color: var(--light-gray1);
 }
 
 
@@ -66,7 +60,7 @@ button {
     padding: 1% 1%; /* 버튼 안쪽 여백 */
     border: none;
     border-radius: 5px;
-    background-color: var(--green);
+    background-color: var(--chery-blue);
     color: white;
     font-size: 0.7 rem;
     font-weight: bold;
@@ -75,7 +69,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--light-gray);
+    background-color: var(--light-gray1);
 }
 
 /* 반응형 스타일 */
