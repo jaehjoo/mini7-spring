@@ -63,6 +63,7 @@ public class ApiController {
         // 문제 없이 성공하면 searchResult로 이동
         if (map.get("status").equals("success")) {
             model.addAttribute("result", map.get("result"));
+            model.addAttribute("resultInfo", emergencyDTO);
             return "searchResult";
         }
 
