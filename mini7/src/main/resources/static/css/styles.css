@@ -1,6 +1,6 @@
 :root {
     --red: #EF6161;
-    --green: #7ac142;
+    --chery-blue: #5471FF;
 }
 body {
     padding: 0;
@@ -37,7 +37,7 @@ form {
     padding: 10px;
     background: #FFF;
     box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--green);
+    border-top: 5px solid var(--chery-blue);
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -79,7 +79,7 @@ input[type="text"] {
 }
 
 input[type="text"]:valid {
-    border-bottom: 1px solid var(--green);
+    border-bottom: 1px solid var(--chery-blue);
 }
 
 input[type="text"]:focus:invalid {
