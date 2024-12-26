@@ -1,3 +1,12 @@
+/*document.addEventListener("DOMContentLoaded", function() {
+    const rows = document.querySelectorAll('tr[data-href]');
+    rows.forEach(row => {
+        row.addEventListener('click', () => {
+            window.location.href = row.dataset.href;
+        });
+    });
+});*/
+
 $(document).ready(function() {
     $('.hospital-row').on('click', function() {
         const href = $(this).data('href');
