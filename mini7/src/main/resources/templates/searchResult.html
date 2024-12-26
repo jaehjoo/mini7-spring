@@ -25,7 +25,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="h, iterStat : ${result.hospitalList}" th:attr="data-href=@{/api/map/dynamic(startLat=${resultInfo.startLat}, startLng=${resultInfo.startLng}, endLat=${h.latitude}, endLng=${h.longitude})}">
+            <tr th:each="h, iterStat : ${result.hospitalList}" 
+                class="hospital-row" 
+                th:attr="data-href=@{/api/map/dynamic(startLat=${resultInfo.startLat}, startLng=${resultInfo.startLng}, endLat=${h.latitude}, endLng=${h.longitude})}">
                 <td th:text="${iterStat.index + 1}"></td>
                 <td th:text="${h.name}"></td>
                 <td th:text="${h.grade}"></td>
@@ -36,9 +38,25 @@
             </tbody>
         </table>
     </div>
-    <script src="/js/eventToMap.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mapModalLabel">Search Route Result</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="map" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    <script type="text/javascript" src="/js/drawMaps.js"></script>
+    <script type="text/javascript" src="/js/eventToMap.js"></script>
 </html>
