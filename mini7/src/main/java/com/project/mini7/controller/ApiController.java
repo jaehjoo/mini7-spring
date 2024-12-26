@@ -36,6 +36,9 @@ public class ApiController {
     @Value("${ai.host.name:null}")
     private String fastApiHostname;
 
+    @Value("${naver.maps.cid:null}")
+    private String clientId;
+
     @GetMapping("/order")
     public String getOrder(@ModelAttribute EmergencyDTO.callInfoDto emergencyDTO, Model model) {
 
@@ -45,6 +48,10 @@ public class ApiController {
             fastApiUrl = "http://" + System.getenv("AI_HOSTNAME") + ":8000/api/order";
         } else {
             fastApiUrl = fastApiHostname + "/api/order";
+        }
+
+        if (clientId.equals("null")) {
+            clientId = System.getenv("MAP_ID");
         }
 
         // fastApi로 get 요청을 하기 위한 쿼리문 작성
@@ -64,12 +71,12 @@ public class ApiController {
         if (map.get("status").equals("success")) {
             model.addAttribute("result", map.get("result"));
             model.addAttribute("resultInfo", emergencyDTO);
+            model.addAttribute("clientId", clientId);
             return "searchResult";
         }
 
         // 실패하면 error 페이지로 이동
         model.addAttribute("result", map.get("result"));
-        System.out.println(map.get("result"));
         return "error";
     }
 
