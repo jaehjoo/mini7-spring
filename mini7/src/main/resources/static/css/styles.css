@@ -92,8 +92,8 @@ input::placeholder {
 
 button[type="button"] {
     margin-top: 10px;
-    border: 2px solid var(--green);
-    background: var(--green);
+    border: 2px solid var(--chery-blue);
+    background: var(--chery-blue);
     border-radius: 25px;
     padding: 10px;
     color: #fff;
@@ -104,15 +104,15 @@ button[type="button"] {
 }
 
 button[type="button"]:hover {
-    color: var(--green);
+    color: var(--chery-blue);
     background: #fff;
-    border: 2px solid var(--green);
+    border: 2px solid var(--chery-blue);
 }
 
 button[type="submit"] {
     margin-top: 10px;
-    border: 2px solid var(--green);
-    background: var(--green);
+    border: 2px solid var(--chery-blue);
+    background: var(--chery-blue);
     border-radius: 25px;
     padding: 10px;
     color: #fff;
@@ -123,7 +123,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    color: var(--green);
-    background: #fff;
-    border: 2px solid var(--green);
+    color: var(--white);
+    background: var(--blue3);
+    border: 2px solid var(--blue3);
 }
