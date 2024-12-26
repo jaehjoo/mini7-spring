@@ -7,7 +7,7 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin-top:10%;
     padding: 20px;
     text-align: center;
 }
@@ -82,3 +82,21 @@ body {
     text-decoration: none;
 }
 
+.footer {
+    font-size: 1rem;
+    color: #aaa;
+    padding-top: 1%;
+    padding-bottom:1%;
+    width: 100%;
+    background-color: rgba(245, 245, 245, 0.8);
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #3A3A3A;
+}
