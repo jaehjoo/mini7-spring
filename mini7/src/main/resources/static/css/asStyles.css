@@ -1,13 +1,17 @@
-body {
+html, body {
     font-family: Arial, sans-serif;
+    height: 100%;
     margin: 0;
     padding: 0;
     color: var(--dark-gray2);
+    display: flex;
+    flex-direction: column; /* 수직 방향으로 배치 */
 }
 
 .container {
+    flex: 1; /* 남은 공간을 차지 */
     max-width: 1200px;
-    margin-top:10%;
+    margin: 10% auto; /* 수평 중앙 정렬 */
     padding: 20px;
     text-align: center;
 }
@@ -25,9 +29,10 @@ body {
     background-color: var(--light-gray1);
     color: var(--dark-gray2);
     border-radius: 15px;
-    padding-top:3%;
-    padding-bottom:3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .service-sections .service-card {
@@ -36,7 +41,6 @@ body {
     margin: 10px 1%;
     text-align: center;
 }
-
 
 .service-card h3 {
     font-size: 26px;
@@ -50,7 +54,6 @@ body {
     margin-bottom: 50px;
 }
 
-/* 버튼 스타일 */
 .service-card button {
     background-color: var(--chery-blue);
     color: var(--white);
@@ -63,7 +66,6 @@ body {
     text-align: center;
 }
 
-/* 버튼 내부 링크 스타일 */
 .service-card button a {
     color: var(--white);
     text-decoration: none;
@@ -72,7 +74,6 @@ body {
     height: 100%;
 }
 
-/* 버튼 호버 효과 */
 .service-card button:hover {
     background-color: var(--blue3);
 }
@@ -86,7 +87,7 @@ body {
     font-size: 1rem;
     color: #aaa;
     padding-top: 1%;
-    padding-bottom:1%;
+    padding-bottom: 1%;
     width: 100%;
     background-color: rgba(245, 245, 245, 0.8);
     text-align: center;
