@@ -1,0 +1,100 @@
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%; /* 테이블 폭을 90%로 설정 */
+    max-width: 1200px; /* 최대 폭 설정 */
+    border-collapse: collapse;
+    margin-top: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+thead {
+    background-color: var(--chery-blue);
+    color: white;
+}
+
+th, td {
+    padding: 12px; /* 패딩을 12px로 증가 */
+    text-align: center;
+    border: 1px solid var(--light-gray1);
+}
+
+td:first-child, th:first-child {
+    padding-left: -2%;
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+tbody tr:hover {
+    background-color: var(--light-gray1);
+    cursor: pointer;
+}
+
+.button-container {
+    width: 100%; /* 버튼 컨테이너 폭을 100%로 설정 */
+    display: flex;
+    justify-content: end; /* 오른쪽 정렬 */
+    align-items: flex-end;
+    margin-top: 5%; /* 테이블 아래 여백 추가 */
+}
+/* 버튼 스타일 */
+button {
+    padding: 1% 1%; /* 버튼 안쪽 여백 */
+    border: none;
+    border-radius: 5px;
+    background-color: var(--chery-blue);
+    color: white;
+    font-size: 0.7 rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--light-gray1);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    td {
+        text-align: right;
+        padding-left: 10%;
+        position: relative;
+    }
+
+    td::before {
+        position: absolute;
+        left: 1%;
+        width: 45%;
+        padding-right: 1%;
+        white-space: nowrap;
+        content: attr(data-label);
+        text-align: left;
+    }
+}

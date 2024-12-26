@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+application-dev.properties
+./application-dev.properties
+/home/kmh7277/mini7-spring/mini7/src/main/resources/application-dev.properties
