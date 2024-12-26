@@ -11,10 +11,11 @@ function initializeMap(startLat, startLng, endLat, endLng) {
 
 function clearRoute() {
     if (polyline) {
-        polyline.setMap(null);
+        polyline.setMap(null); 
     }
-    markers.forEach(marker => marker.setMap(null));
+    markers.forEach(marker => marker.setMap(null)); 
     markers.length = 0;
+}
 
 function drawRoute(startLat, startLng, endLat, endLng) {
     clearRoute();
