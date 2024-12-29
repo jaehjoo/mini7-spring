@@ -6,8 +6,7 @@
 ### 3. Azure Web App에 Custom Container를 이용하여 서비스할 것
 ## 프로젝트 기간
 ### 2024/12/18 ~ 2024/12/26
-## 개발 스택 및 개념도
-![image](/images/rule.png)
+## 개발 스택
 ### Infra
 - Azure Web app Container
 - virtual Network
